@@ -6,7 +6,7 @@ __pycache__
 myenv
 
 # Data files
-profile_data.csv
+profiles_data.csv
 authors_data.csv
 threads_data.csv
 
