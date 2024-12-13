@@ -60,15 +60,16 @@ users_to_process = read_users_from_csv()
 
 def process_user_profiles(users_to_process):
     # 設置滾動時間
-    SCROLL_PAUSE_TIME = 1
+    SCROLL_PAUSE_TIME = 0.3
 
     # 循環處理每個使用者
     for user in users_to_process:
+        seen_data = set()
         profile_url = f"https://www.threads.net/@{user}?hl=zh-tw"
         
         # 打開使用者的頁面
         driver.get(profile_url)
-        time.sleep(3)
+        time.sleep(1)
 
         # 創建每個用戶的 CSV 檔案
         user_csv_file_path = f"{user}_profile_data.csv"
@@ -90,25 +91,21 @@ def process_user_profiles(users_to_process):
                 for element in author_elements:
                     lines = element.text.split('\n')
                     if len(lines) > 3:
+                        user = lines[0]
                         post_time = lines[1]
+                        content = ' '.join(lines[3:])
                         if post_time.count('-') == 2:  # 如果有兩個 '-'
                             year = post_time.split('-')[0]
                             print(year)
-
                             # 如果年份是 2023 或更早，則寫入資料並停止抓取
                             if int(year) <= 2023:
                                 print(f"Post time {post_time} is before or in 2023, stopping further posts for {user}")
-                                author_elements = driver.find_elements(By.CLASS_NAME, 'xrvj5dj')
-                                for element in author_elements:
-                                    lines = element.text.split('\n')
-                                    if len(lines) > 3:
-                                        user = lines[0]
-                                        post_time = lines[1]
-                                        content = ' '.join(lines[3:])
-                                        writer.writerow([user, post_time, content])
-
                                 # 跳到下一位使用者
                                 break
+                        unique_key = lines[3][-10:]
+                        if unique_key not in seen_data:
+                            writer.writerow([user, post_time, content])
+                        seen_data.add(unique_key)
                 else:
                     # 如果沒有觸發 break (即處理完所有元素)，繼續滾動頁面
                     continue
