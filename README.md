@@ -64,7 +64,7 @@ single、complete、average、ward
 
 ### Chi-square
 
-## Pointwise Mutual Information
+### Pointwise Mutual Information
 
 ## 最終報告
 
