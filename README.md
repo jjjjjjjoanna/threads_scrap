@@ -1,11 +1,11 @@
 # Threads Scraper
 
-本项目用于爬取 Threads 用户的帖子和个人信息。
+本項目用於爬取 Threads 用戶的貼文及個人資訊。
 
 ## 使用步骤
 
 ### 1. 克隆仓库
-运行以下命令克隆项目到本地：
+運行以下命令，clone 項目到本地：
 ```bash
 git clone https://github.com/jjjjjjjoanna/threads_scrap.git
 cd threads_scrap
