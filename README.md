@@ -68,6 +68,6 @@ single、complete、average、ward
 
 ## 最終報告
 
-[口頭報告](https://www.canva.com/design/DAGZz-HT4H4/cB6tV64tPA3SF95u1znRoA/edit)
+[口頭報告](https://www.canva.com/design/DAGZz-HT4H4/cB6tV64tPA3SF95u1znRoA/edit?utm_content=DAGZz-HT4H4&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 書面報告如附檔 資訊檢索與文字探勘導論第九組期末報告.pdf
